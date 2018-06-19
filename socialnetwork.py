@@ -1,49 +1,66 @@
-##THE SOCIAL NETWORK
+ ##THE SOCIAL NETWORK
 
 
     
 
 class User:
-    def __init__(self, firstName, lastName, username, bio, userID ):
-        self.firstName= firstName
-        self.lastName= lastName
+    def __init__(self,username):
         self.username= username
-        self.bio= bio
-        self.userID= userID
+        self.firstName= ""
+        self.lastName= ""
+        self.bio= ""
         self.friends=[]
         self.posts=[]
+        
+    def addfirstName(self,firstName):
+        self.firstName= firstName
 
-    def addFriend(self,username):
-        self.friends.append(username)
+    def addlastName(self,lastName):
+        self.lastName= lastName
 
-##            def unfriend():
+    def addbio(self,bio):
+        self.bio= bio
 
+    def addFriend(self,obj):
+        self.friends.append(obj)
+
+    def addposts(self,posts):
+        self.posts.append(posts)
+
+    def unFriend(self,username):
+        for friend in friends:
+            if friend.username==username:
+               self.friends.remove(User(username))
+            
     def viewNewsFeed(self,friends):
-        self.friends.append(posts)
+        for friend in self.friends:
+            print(friend.posts)
+
+    def viewFriends(self, friends):
+        for people in friends:
+            print(people.username)
 
 if __name__ == "__main__":
-    firstName = "Daniel"
-    lastName = "Chavez"
-    username = "XXDC"
-    bio = "HI"
-    userID = "4142"
+    username = "NBA(O)DCHAVEZ"
 
 
-    Daniel = User(firstName, lastName, username, bio, userID)
-    Bobby = User("Bobby", "BobbyBrown", "BobbyBrownJr.", "Hello", "6578")
-    Steve = User("Steve", "SteveJones", "SJ", "Hi", "8765")
+    Daniel = User(username)
+    Bobby = User("BobbyBrownJr")
+    Steve = User("SteveJones")
+
     print(Daniel.firstName)
     print(Bobby.firstName)
     print(Steve.firstName)
 
-    Daniel.addFriend("Bobby")
-    Daniel.addFriend("Steve")
-    print(Daniel.friends)
+    Daniel.addFriend(Bobby)
+    Daniel.addFriend(Steve)
+
     Daniel.posts.append("IM HUNGRY")
     Bobby.posts.append("IM LAZY")
     Steve.posts.append("IM TIRED")
-    print(Daniel.posts)
-    print(Bobby.posts)
-    print(Steve.posts)
 
-    Daniel.viewNewsFeed(username)
+    Daniel.viewFriends(Daniel.friends)
+    Daniel.viewNewsFeed(Daniel.friends)
+   ##    print (Daniel.posts)
+   ##    print (Bobby.posts)
+   ##    print (Steve.posts)
