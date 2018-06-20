@@ -1,7 +1,6 @@
  ##THE SOCIAL NETWORK
 
 
-    
 
 class User:
     def __init__(self,username):
@@ -27,10 +26,10 @@ class User:
     def addposts(self,posts):
         self.posts.append(posts)
 
-    def unFriend(self,username):
+    def unFriend(self,like):
         for friend in friends:
-            if friend.username==username:
-               self.friends.remove(User(username))
+            if friend.username==like.username:
+               self.friends.remove(like)
             
     def viewNewsFeed(self,friends):
         for friend in self.friends:
@@ -61,6 +60,8 @@ if __name__ == "__main__":
 
     Daniel.viewFriends(Daniel.friends)
     Daniel.viewNewsFeed(Daniel.friends)
+    Daniel.unFriend(Steve)
+    Daniel.viewFriends(Daniel.friends)
    ##    print (Daniel.posts)
    ##    print (Bobby.posts)
    ##    print (Steve.posts)
