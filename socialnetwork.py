@@ -39,29 +39,63 @@ class User:
         for people in friends:
             print(people.username)
 
+class User:
+    def __init__ (self,username):
+        self.username=username
+
+
+        friends=[]
+        posts=[]
+
+    def createPost(self,content):
+        mypost = post(content)
+        self.posts.append(mypost)
+        mypost.createPostID(len(posts))
+
+class Post:
+    def __init__(self,content):
+        self.content=content
+        self.postID=" "
+        self.comments=[]
+
+    def createPostID(self,num):
+        self.postID=num
+
+class Network:
+    def __init__(self):
+        self.users= []
+
+    def createUser(self, username):
+        myuser=User(username)
+        self.Users.append(myUser)
+        myUser.createUserID(len(users))
+
+
 if __name__ == "__main__":
-    username = "NBA(O)DCHAVEZ"
+##    username = "NBA(O)DCHAVEZ"
+
+    network = Network()
 
 
-    Daniel = User(username)
-    Bobby = User("BobbyBrownJr")
+    network.createUser("Daniel")
+    Bobby = createUser("BobbyBrownJr")
     Steve = User("SteveJones")
 
-    print(Daniel.firstName)
-    print(Bobby.firstName)
-    print(Steve.firstName)
-
-    Daniel.addFriend(Bobby)
-    Daniel.addFriend(Steve)
-
-    Daniel.posts.append("IM HUNGRY")
-    Bobby.posts.append("IM LAZY")
-    Steve.posts.append("IM TIRED")
-
-    Daniel.viewFriends(Daniel.friends)
-    Daniel.viewNewsFeed(Daniel.friends)
-    Daniel.unFriend(Steve)
-    Daniel.viewFriends(Daniel.friends)
-   ##    print (Daniel.posts)
-   ##    print (Bobby.posts)
-   ##    print (Steve.posts)
+##    print(Daniel.firstName)
+##    print(Bobby.firstName)
+##    print(Steve.firstName)
+##
+##    Daniel.addFriend(Bobby)
+##    Daniel.addFriend(Steve)
+##
+##    Daniel.posts.append("IM HUNGRY")
+##    Bobby.posts.append("IM LAZY")
+##    Steve.posts.append("IM TIRED")
+##
+##    Daniel.viewFriends(Daniel.friends)
+##    Daniel.viewNewsFeed(Daniel.friends)
+##    Daniel.unFriend(Steve)
+##    Daniel.viewFriends(Daniel.friends)
+##   ##    print (Daniel.posts)
+##   ##    print (Bobby.posts)
+##   ##    print (Steve.posts)
