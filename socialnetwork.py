@@ -9,6 +9,7 @@ class User:
         self.lastName= ""
         self.bio= ""
         self.friends=[]
+        self.userId=""
         self.posts=[]
         
     def addfirstName(self,firstName):
@@ -39,13 +40,9 @@ class User:
         for people in friends:
             print(people.username)
 
-class User:
-    def __init__ (self,username):
-        self.username=username
+    def createuserID(self,num):
+        self.userID=num
 
-
-        friends=[]
-        posts=[]
 
     def createPost(self,content):
         mypost = post(content)
@@ -61,25 +58,45 @@ class Post:
     def createPostID(self,num):
         self.postID=num
 
+    def createComment(self,comment):
+        self.comments.append(comment)
+
 class Network:
     def __init__(self):
         self.users= []
 
     def createUser(self, username):
         myuser=User(username)
-        self.Users.append(myUser)
-        myUser.createUserID(len(users))
+        self.users.append(myuser)
+        myuser.createuserID(len(self.users))
+
+    def addConnection(self, Bobby, Steve):
+
+        user10OBJ= self.getOBJ(user1)
+        user20OBJ= selfgetOBJ(user2)
+
+        user10OBJ.addFriend(user20OBJ)
+        user20OBJ.addFriend(user10OBJ)
+
+    def getOBJ(self,username):
+        userID=self.getUserID(username)
+        userOBJ= self.users[userID-1]
+        return userOBJ
+
+    def getUserID(self, username):
+        for i in self.users:
+            if i.username == username:
+                return i.userID
 
 
 if __name__ == "__main__":
 ##    username = "NBA(O)DCHAVEZ"
 
     network = Network()
-
-
+    
     network.createUser("Daniel")
-    Bobby = createUser("BobbyBrownJr")
-    Steve = User("SteveJones")
+    network.createUser("Bobby")
+    network.createUser("Steve")
 
 ##    print(Daniel.firstName)
 ##    print(Bobby.firstName)
@@ -96,6 +113,8 @@ if __name__ == "__main__":
 ##    Daniel.viewNewsFeed(Daniel.friends)
 ##    Daniel.unFriend(Steve)
 ##    Daniel.viewFriends(Daniel.friends)
-##   ##    print (Daniel.posts)
-##   ##    print (Bobby.posts)
-##   ##    print (Steve.posts)
+##    print (Daniel.posts)
+##    print (Bobby.posts)
+##    print (Steve.posts)
+
+##    print("user created!")
